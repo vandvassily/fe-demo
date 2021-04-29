@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Layout from './views/Layout.vue';
+import Page404 from './views/404.vue'
 
 Vue.use(Router);
 export const routes = [
@@ -9,6 +10,13 @@ export const routes = [
     name: 'home',
     redirect: 'es6',
     component: Layout
+  },
+  {
+    path: '/404',
+    component: Page404,
+    name: 'page404',
+    hidden: true,
+    meta: { title: '404' }
   },
   {
     path: '/es6',
@@ -27,9 +35,14 @@ export const routes = [
     redirect: '/vue/about',
     children: [
       { path: 'about', component: () => import('@/views/vue/About'), name: 'about', meta: { title: 'vue about' } },
-      { path: 'slot', component: () => import('@/views/vue/SlotPage'), name: 'slotPage', meta: { title: 'Slot使用' } }
+      { path: 'slot', component: () => import('@/views/vue/SlotPage/index'), name: 'slotPage', meta: { title: '插槽slot' } }
     ]
   },
+  {
+    path: '*',
+    redirect: '404',
+    hidden: true
+  }
 ]
 
 export default new Router({

@@ -1,10 +1,15 @@
 <template>
   <aside class="sidebar">
-    <div class="footer-container">路由区域</div>
+    <div class="footer-container">sideBar</div>
     <template v-for="item in routes">
       <ul v-if="item.children" :key="item.name">
-        <li v-for="link in item.children" :key="link.name">
-          <router-link :to="item.path+ '/' + link.path">
+        <h3>{{ item.name }}</h3>
+        <li
+          v-for="link in item.children"
+          :key="link.name"
+          :class="$route.path.indexOf(item.path + '/' + link.path) > -1 ? 'active' : ''"
+        >
+          <router-link :to="item.path + '/' + link.path">
             {{ link.meta.title }}
           </router-link>
         </li>
@@ -22,7 +27,13 @@ export default {
     return {
       routes
     };
-  }
+  },
+  created() {
+    console.log(this.$router);
+    console.log(this.$router.getRoutes());
+  },
+  methods: {},
+  filters: {}
 };
 </script>
 
@@ -42,6 +53,7 @@ export default {
   border-right: 1px solid #eaecef;
   overflow-y: auto;
   text-align: left;
+  padding-left: 30px;
 
   ul {
     padding: 0;
@@ -51,6 +63,14 @@ export default {
 
     a {
       padding-left: 2rem;
+      text-decoration: none;
+      color: #304455;
+    }
+    .active {
+      a {
+        font-weight: 600;
+        color: #42b983;
+      }
     }
   }
 }
