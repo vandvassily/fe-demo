@@ -36,7 +36,8 @@ export const routes = [
     children: [
       { path: 'about', component: () => import('@/views/vue/About'), name: 'about', meta: { title: 'vue about' } },
       { path: 'slot', component: () => import('@/views/vue/SlotPage/index'), name: 'slotPage', meta: { title: '插槽slot' } },
-      { path: 'alert', component: () => import('@/views/vue/Alert'), name: 'alertPage', meta: { title: '全局alert' } }
+      { path: 'alert', component: () => import('@/views/vue/Alert'), name: 'alertPage', meta: { title: '全局alert' } },
+      { path: 'model', component: () => import('@/views/vue/Model'), name: 'modelPage', meta: { title: 'v-model用法' } },
     ]
   },
   {
