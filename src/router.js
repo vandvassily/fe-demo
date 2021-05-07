@@ -22,9 +22,8 @@ export const routes = [
     path: '/es6',
     component: Layout,
     name: 'es6',
-    redirect: '/es6/about',
+    redirect: '/es6/home',
     children: [
-      { path: 'about', component: () => import('@/views/es6/About'), name: 'about', meta: { title: 'es6 about' } },
       { path: 'home', component: () => import('@/views/es6/Home'), name: 'Home', meta: { title: 'es6 Home' } }
     ]
   },
@@ -32,12 +31,12 @@ export const routes = [
     path: '/vue',
     component: Layout,
     name: 'vue',
-    redirect: '/vue/about',
+    redirect: '/vue/slot',
     children: [
-      { path: 'about', component: () => import('@/views/vue/About'), name: 'about', meta: { title: 'vue about' } },
       { path: 'slot', component: () => import('@/views/vue/SlotPage/index'), name: 'slotPage', meta: { title: '插槽slot' } },
       { path: 'alert', component: () => import('@/views/vue/Alert'), name: 'alertPage', meta: { title: '全局alert' } },
       { path: 'model', component: () => import('@/views/vue/Model'), name: 'modelPage', meta: { title: 'v-model用法' } },
+      { path: 'extend', component: () => import('@/views/vue/Extend'), name: 'extendPage', meta: { title: 'extend使用' } },
     ]
   },
   {

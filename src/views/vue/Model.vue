@@ -1,25 +1,36 @@
 <template>
   <div>
-    <checkbox-group v-model="group" @change="printGroup" @input="printInput">
-      <base-checkbox label="备选项1">
-        <label>单选1</label>
-      </base-checkbox>
-      <base-checkbox label="备选项2">
-        <label>单选2</label>
-      </base-checkbox>
+    <checkbox-group
+      v-model="group"
+      @change="printGroup"
+      @input="printInput"
+    >
+      <checkbox label="选项1">
+        <label>多选1</label>
+      </checkbox>
+      <checkbox label="选项2">
+        <label>多选2</label>
+      </checkbox>
     </checkbox-group>
-    <button @click="changeDefaultChecked">改变checked状态</button>
+    <br>
+    <checkbox
+      v-model="testModel"
+      disabled
+    >
+      <label>单选1</label>
+    </checkbox>
+    <button @click="changeDefaultChecked">改变单选1的状态</button>
   </div>
 
 </template>
 
 <script>
-import BaseCheckbox from '@/components/BaseCheckbox';
+import Checkbox from '@/components/Checkbox';
 import CheckboxGroup from '@/components/CheckboxGroup';
 export default {
   name: 'ModelPage',
   components: {
-    BaseCheckbox,
+    Checkbox,
     CheckboxGroup
   },
   data() {

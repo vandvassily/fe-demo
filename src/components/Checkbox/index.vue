@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'BaseCheckbox',
+  name: 'Checkbox',
   model: {
     prop: 'checked',
     event: 'change'
@@ -24,10 +24,11 @@ export default {
       type: Boolean,
       default: false
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
+    label: {
+      type: String,
+      default: ''
+    },
+    disabled: Boolean
   },
   computed: {
     isGroup() {
@@ -42,6 +43,9 @@ export default {
       return false;
     }
   },
+  mounted() {
+    console.log(' ' + this.disabled);
+  },
   methods: {
     change(e) {
       this.$emit('change', e.target.checked);
@@ -55,10 +59,10 @@ export default {
 
       if (val) {
         /* istanbul ignore else */
-        value.push(this.checked);
+        value.push(this.label);
         parent.$emit('input', value);
       } else {
-        const index = value.indexOf(this.checked);
+        const index = value.indexOf(this.label);
 
         /* istanbul ignore else */
         if (index !== -1) {
