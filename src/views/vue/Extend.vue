@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="showToast">click toast</button>
   </div>
 </template>
 
@@ -10,7 +11,11 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    showToast() {
+      this.$Toast.showToast();
+    }
+  },
   computed: {},
   watch: {}
 };

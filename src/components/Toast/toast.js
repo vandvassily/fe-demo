@@ -9,4 +9,11 @@ const Toast = Vue.extend({
     },
 });
 
-export default Toast;
+function showToast() {
+    const component = new Toast().$mount();
+    document.body.appendChild(component.$el);
+}
+
+export default {
+    showToast
+};
